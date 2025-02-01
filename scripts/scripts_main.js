@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Добавление анимации появления при прокрутке
+
     const features = document.querySelectorAll(".feature");
 
     const observer = new IntersectionObserver(entries => {
@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(feature);
     });
 
-    // Эффект затемнения фона при скролле
     const header = document.querySelector("header");
     window.addEventListener("scroll", () => {
         if (window.scrollY > 50) {
@@ -24,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Кнопка прокрутки вверх
     const scrollBtn = document.createElement("button");
     scrollBtn.textContent = "↑";
     scrollBtn.classList.add("scroll-to-top");
