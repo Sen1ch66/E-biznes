@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            width: 100%;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input, select, textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/index.html">Strona główna</a> |
+            <a href="/login-registration.html">Login-registration</a> |
+            <a href="/contact.html">Kontakt</a>
+            <a href="/contact.html">Kontakt</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Formularz kontaktowy</h1>
+        <form onsubmit="clearForm(); return false;">
+            <label for="author">Autor (obowiązkowe):</label>
+            <input type="text" id="author" name="author" required>
+            
+            <label for="title">Tytuł (obowiązkowe):</label>
+            <input type="text" id="title" name="title" required>
+            
+            <label for="rating">Ocena aplikacji (obowiązkowe):</label>
+            <select id="rating" name="rating" required>
+                <option value="">Wybierz ocenę</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            
+            <label for="description">Opisz recenzję:</label>
+            <textarea id="description" name="description" rows="4" placeholder="Dodaj dłuższy opis..."></textarea>
+            
+            <button type="submit">Wyślij recenzję</button>
+        </form>
+    </main>
+    <script>
+        function clearForm() {
+            document.getElementById('author').value = '';
+            document.getElementById('title').value = '';
+            document.getElementById('rating').selectedIndex = 0;
+            document.getElementById('description').value = '';
+        }
+    </script>
+</body>
+</html>
