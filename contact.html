@@ -64,7 +64,10 @@
 <body>
     <header>
         <nav>
-            <a href="main_not_logged.html">pzh rabotajjj</a>
+            <a href="main_not_logged.html">Strona Glówna nie log</a>
+            <a href="contact.html">Kontakt</a>
+            <a href="mainpage.html">Strona Glówna log</a>
+            <a href="login-registration.html">Logowanie</a>
          
 
         </nav>
@@ -72,11 +75,11 @@
     <main>
         <h1>Formularz kontaktowy</h1>
         <form onsubmit="clearForm(); return false;">
-            <label for="author"> (obowiązkowe):</label>
-            <input type="text" id="author" name="author" required>
+            <label for="profil_name">Nazwa uytkownika (obowiązkowe):</label>
+            <input type="text" id="profil_name" name="profil_name" required>
             
-            <label for="title"> (obowiązkowe):</label>
-            <input type="text" id="title" name="title" required>
+            <label for="E-mail">E-mail (obowiązkowe):</label>
+            <input type="email  " id="E-mail" name="E-mail" required>
             
             <label for="rating">Ocena aplikacji (obowiązkowe):</label>
             <select id="rating" name="rating" required>
@@ -88,7 +91,7 @@
                 <option value="5">5</option>
             </select>
             
-            <label for="description">Opisz recenzję:</label>
+            <label for="description">Napisz recenzję:</label>
             <textarea id="description" name="description" rows="4" placeholder="Dodaj dłuższy opis..."></textarea>
             
             <button type="submit">Wyślij recenzję</button>
