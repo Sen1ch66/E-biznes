@@ -2,12 +2,84 @@
     --white: #fff;
     --light: #eeeded;
     --blue: #4fcbf0;
+    --primary-color: #3498db;
+    --primary-light: #5dade2;
+    --light-gray: #f5f6fa;
+    --text-color: #2c3e50;
 }
-body{
+body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
     background-color: var(--blue);
-    font-family: system-ui;
+    margin: 0;
+    padding: 0;
 }
-.container {
+
+header {
+    background-color: var(--white) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    height: 90px;
+    top: 0;
+    z-index: 1000;
+    padding: 0 2rem;
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+}
+
+header h1 {
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+nav {
+    margin-left: auto; 
+    margin-right: 50px;
+}
+
+nav ul {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+header h1:hover {
+    transform: translateX(10px);
+}
+
+main {
+    padding-top: 50px; 
+    min-height: 50px; 
+}
+
+.container { 
     width: 1200px;
     border: 1px solid var(--white);
     max-width: 100%;
@@ -16,39 +88,25 @@ body{
     grid-template-areas:
         "menu menu"
         "center cart";
-    grid-template-columns: auto 300px; /* Центр растягивается, корзина фиксирована */
-    grid-template-rows: auto 1fr;       /* Первая строка под меню, вторая — остальной контент */
-    gap: 20px;                         /* Промежуток между областями */
+    grid-template-columns: auto 300px; 
+    grid-template-rows: auto 1fr;      
+    gap: 20px;                        
     padding: 20px;
     border-radius: 30px;
-}
-
-.container .menu {
-    display: flex;
-    gap: 250px;
-    justify-content: center;
-    align-items: center;    
-    grid-area: menu;
-    background-color: var(--white);
-    /* Если раньше меню имело скругления только слева, теперь обновляем */
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
 }
 
 .container .center {
     grid-area: center;
     background-color: var(--light);
-    /* Можно задать скругления, если нужно */
-    border-bottom-left-radius: 30px;
+    
+    border-radius: 30px;
 }
 
 .container .cart {
     grid-area: cart;
     background-color: var(--white);
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-radius: 30px;
 }
-
 
 .add:hover {
     background-color: #3e8e41
@@ -60,41 +118,10 @@ body{
   transform: translateY(4px);
 }
 
-
-/* menu */
-
-
-.menu ul {
-    display: flex;
-    gap: 250px;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    border-bottom: 1px solid var(--light);
-}
-
-.menu ul li {   
-    padding: 10px 0;
-}
-
-.menu ul li i {
-    margin-right: 12px;
-}
-
-.menu ul li:hover {
-    color: var(--blue);
-    border-right: 2px solid var(--blue);
-}
-
-/* end menu */
-/* center */
-    /* form */
-
-    /* end form */
-
 .center h2{
     padding:25px;
 }
+
 .center .list{
     padding:0 20px 20px;
     display: grid;
@@ -102,16 +129,19 @@ body{
     column-gap: 20px;
     row-gap: 20px;
 }
+
 .item{
     background-color: var(--white);
     padding:10px;
     column-gap: 20px;
     border-radius: 20px;
 }
+
 .item .img img{
     height:230px;
     width: 230px;
 }
+
 .item .img{
     background-color: var(--light);
     border-radius: 20px;
@@ -119,9 +149,11 @@ body{
     justify-content: center;
     align-items: center;
 }
+
 .item .content .title{
     font-weight: bold;
 }
+
 .item .content .des{
     font-size: small;
     opacity: 0.7;
@@ -137,6 +169,7 @@ body{
     outline: none;
      margin-top:5px;
 }
+
 .item .content .add{
     margin-top:5px;
     background-color: var(--blue);
@@ -145,6 +178,7 @@ body{
     border:none;
     border-radius: 10px;
 }
+
 .item .content .remove{
     padding:5px;
     border:none;
@@ -153,11 +187,11 @@ body{
     display: none;
 }
 
-/* end center */
 .cart .item{
     transition: 0.5s;
     border-bottom: 1px solid var(--light);
 }
+
 .cart .name{
     padding:20px;
     height:40px;
@@ -165,13 +199,16 @@ body{
     font-size: xx-large;
     border-bottom:1px solid var(--light)
 }
+
 .danger{
     box-shadow: 0 10px 40px -10px var(--orange);
     transform: translate(0,-7px);
 }
+
 .cart .add{
     display: none;
 }
+
 .cart .remove{
     display: inline-block!important;
 }

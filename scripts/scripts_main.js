@@ -5,6 +5,9 @@ function createScrollTopButton() {
     button.className = 'scroll-top-button';
     document.body.appendChild(button);
 
+    // Добавляем обработчик события для прокрутки вверх
+    button.addEventListener('click', scrollToTop);
+
     // Добавляем стили для кнопки
     const style = document.createElement('style');
     style.textContent = `
@@ -37,6 +40,7 @@ function createScrollTopButton() {
     `;
     document.head.appendChild(style);
 }
+
 
 // Показываем/скрываем кнопку прокрутки вверх
 function toggleScrollTopButton() {
@@ -185,6 +189,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Обработка переходов по навигационным ссылкам
 document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        if (link.getAttribute('href') !== '#') {
+            showLoadingIndicator();
+            setTimeout(hideLoadingIndicator, 500);
+        }
+    });
+});
+
+// Обработка переходов по навигационным ссылкам
+document.querySelectorAll('h1').forEach(link => {
     link.addEventListener('click', (e) => {
         if (link.getAttribute('href') !== '#') {
             showLoadingIndicator();

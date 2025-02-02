@@ -22,6 +22,7 @@ list.forEach(item => {
         }
     })
 })
+
 function Remove($key){
     let listCart = document.querySelectorAll('.cart .item');
     listCart.forEach(item => {
