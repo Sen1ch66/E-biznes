@@ -1,0 +1,177 @@
+:root{
+    --white: #fff;
+    --light: #eeeded;
+    --blue: #4fcbf0;
+}
+body{
+    background-color: var(--blue);
+    font-family: system-ui;
+}
+.container {
+    width: 1200px;
+    border: 1px solid var(--white);
+    max-width: 100%;
+    margin: 50px auto 0;
+    display: grid;
+    grid-template-areas:
+        "menu menu"
+        "center cart";
+    grid-template-columns: auto 300px; /* Центр растягивается, корзина фиксирована */
+    grid-template-rows: auto 1fr;       /* Первая строка под меню, вторая — остальной контент */
+    gap: 20px;                         /* Промежуток между областями */
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.container .menu {
+    display: flex;
+    gap: 250px;
+    justify-content: center;
+    align-items: center;    
+    grid-area: menu;
+    background-color: var(--white);
+    /* Если раньше меню имело скругления только слева, теперь обновляем */
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.container .center {
+    grid-area: center;
+    background-color: var(--light);
+    /* Можно задать скругления, если нужно */
+    border-bottom-left-radius: 30px;
+}
+
+.container .cart {
+    grid-area: cart;
+    background-color: var(--white);
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+
+.add:hover {
+    background-color: #3e8e41
+}
+
+.add:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+/* menu */
+
+
+.menu ul {
+    display: flex;
+    gap: 250px;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    border-bottom: 1px solid var(--light);
+}
+
+.menu ul li {   
+    padding: 10px 0;
+}
+
+.menu ul li i {
+    margin-right: 12px;
+}
+
+.menu ul li:hover {
+    color: var(--blue);
+    border-right: 2px solid var(--blue);
+}
+
+/* end menu */
+/* center */
+    /* form */
+
+    /* end form */
+
+.center h2{
+    padding:25px;
+}
+.center .list{
+    padding:0 20px 20px;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+.item{
+    background-color: var(--white);
+    padding:10px;
+    column-gap: 20px;
+    border-radius: 20px;
+}
+.item .img img{
+    height:230px;
+    width: 230px;
+}
+.item .img{
+    background-color: var(--light);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item .content .title{
+    font-weight: bold;
+}
+.item .content .des{
+    font-size: small;
+    opacity: 0.7;
+    margin-top:5px;
+}
+
+.item .count{
+    width: 50px;
+    border-radius: 10px;
+    margin-right: 10px;
+    padding:3px 5px;
+    border:1px solid var(--light);
+    outline: none;
+     margin-top:5px;
+}
+.item .content .add{
+    margin-top:5px;
+    background-color: var(--blue);
+    color:var(--white);
+    padding:5px 10px;
+    border:none;
+    border-radius: 10px;
+}
+.item .content .remove{
+    padding:5px;
+    border:none;
+    margin-top:5px;
+    border-radius: 10px;
+    display: none;
+}
+
+/* end center */
+.cart .item{
+    transition: 0.5s;
+    border-bottom: 1px solid var(--light);
+}
+.cart .name{
+    padding:20px;
+    height:40px;
+    font-weight: bold;
+    font-size: xx-large;
+    border-bottom:1px solid var(--light)
+}
+.danger{
+    box-shadow: 0 10px 40px -10px var(--orange);
+    transform: translate(0,-7px);
+}
+.cart .add{
+    display: none;
+}
+.cart .remove{
+    display: inline-block!important;
+}
