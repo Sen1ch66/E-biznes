@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link rel="stylesheet" href="styleKosz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <ul>
+                <li><i class="fa-solid fa-house-user"></i>Strona Główna</li>
+                <li><i class="far fa-address-book"></i>Kontakt</li>
+                <li><i class="fas fa-bell"></i>Zaloguj się</li>
+                <li><i class="fab fa-deskpro"></i>O nas</li>
+            </ul>
+        </div>
+        <div class="center">
+
+            <h2>Kupony</h2>
+            <div class="list">
+                <div class="item" data-key="1">
+                    <div class="img">
+                        <img src="kupon1.jpg" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="title">Kupon 1</div>
+                        <div class="des">
+                            Tortilla pszenna LUB Sok jabłkowy
+                            <br>
+                            Rabat nalicza się na maksymalnie 1 sztukę
+                        </div>
+                        <input type="number" class="count" min="1" value="1">
+                        <button class="add">Dodać do koszyka</button>
+                        <button class="remove" onclick="Remove(1)"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                </div>
+
+                <div class="item" data-key="2">
+                    <div class="img">
+                        <img src="kupon2.jpg" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="title">Kupon 2</div>
+                        <div class="des">
+                            Jajka ściółkowe M
+                        <br>
+                             Przy zakupie 2 opakowań z Lidl Plus
+                        </div>
+                        <input type="number" class="count" min="1" value="1">
+                        <button class="add">Dodać do koszyka</button>
+                        <button class="remove" onclick="Remove(2)"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                </div>
+
+                <div class="item" data-key="3">
+                    <div class="img">
+                        <img src="kupon3.jpg" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="title">Kupon 3</div>
+                        <div class="des">
+                            Sery żółte Gouda, Carski, Salami, Tylżycki
+                        <br>
+                             Przy zakupie min. 2szt. z Lidl Plus
+                        </div>
+                        <input type="number" class="count" min="1" value="1">
+                        <button class="add">Dodać do koszyka</button>
+                        <button class="remove" onclick="Remove(3)"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                </div>
+                
+                <div class="item" data-key="4">
+                    <div class="img">
+                        <img src="kupon4.jpg" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="title">Kupon 4</div>
+                        <div class="des">
+                            Mleko UHT 3,2%
+                            <br>
+                            Przy zakupie min. 6szt. z Lidl Plus 
+                        </div>
+                        <input type="number" class="count" min="1" value="1">
+                        <button class="add">Dodać do koszyka</button>
+                        <button class="remove" onclick="Remove(4)"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                </div>
+
+                <div class="item" data-key="5">
+                    <div class="img">
+                        <img src="kupon5.jpg" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="title">Kupon 5</div>
+                        <div class="des">
+                            Czekolada biała, mleczna Fin Carre 
+                            <br>
+                            Przy zakupie min. 2szt. z Lidl Plus
+                        </div>
+                        <input type="number" class="count" min="1" value="1">
+                        <button class="add">Dodać do koszyka</button>
+                        <button class="remove" onclick="Remove(5)"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                </div>
+
+                <div class="item" data-key="6">
+                    <div class="img">
+                        <img src="kupon6.jpg" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="title">Kupon 6</div>
+                        <div class="des">
+                            Wszystkie nektary Solevita
+                            <br>
+                            Przy zakupie min. 2szt. z Lidl Plus                        </div>
+                        <input type="number" class="count" min="1" value="1">
+                        <button class="add">Dodać do koszyka</button>
+                        <button class="remove" onclick="Remove(6)"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="cart">
+            <div class="name">Koszyk</div>
+            <div class="listCart">
+
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="scriptKosz.js"></script>
+</body>
+</html>
