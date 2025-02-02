@@ -25,7 +25,7 @@ function logining(){
     const pass = document.querySelector(".password").value
     for(let i in listaKontow){
         if(listaKontow[i].login == loginText && listaKontow[i].password == pass){
-            window.location.href = '../index.html'
+            window.location.href = 'mainpage.html'
         } else if(loginAtt > 4){ //якщо 4 рази неправильно ввів дані
             alert("przekroczono liczbę prób, sprobuj pozniej")
             logBtn.removeEventListener("click", logining) // видалення обробника кліку з кнопки
