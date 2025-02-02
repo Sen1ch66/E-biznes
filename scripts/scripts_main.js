@@ -62,10 +62,14 @@ function handleScrollAnimations() {
     const windowHeight = window.innerHeight;
 
     elements.forEach(element => {
+        // Добавляем класс animate только если элемент еще не был анимирован
+        if (!element.classList.contains('animate')) {
+            element.classList.add('animate');
+        }
+        
         const elementTop = element.getBoundingClientRect().top;
         if (elementTop < windowHeight * 0.8) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
+            element.classList.add('visible');
         }
     });
 }
@@ -151,20 +155,26 @@ function addParallaxEffect() {
 
 // Инициализация всех функций
 document.addEventListener('DOMContentLoaded', () => {
-    // Создаем и настраиваем кнопку прокрутки вверх
-    createScrollTopButton();
-    const scrollTopButton = document.querySelector('.scroll-top-button');
-    scrollTopButton.addEventListener('click', scrollToTop);
+    // Удаляем начальные стили, которые могут вызывать проблемы
+    const features = document.querySelectorAll('.feature');
+    features.forEach(feature => {
+        feature.style.opacity = '1';
+        feature.style.transform = 'none';
+    });
 
-    // Добавляем остальные функции
-    addScrollAnimationStyles();
+    // Остальной код инициализации остается без изменений
+    createScrollTopButton();
     addNavigationAnimations();
     addLoadingIndicator();
     addParallaxEffect();
 
-    // Показываем индикатор загрузки при старте
-    showLoadingIndicator();
-    setTimeout(hideLoadingIndicator, 1000);
+    // Запускаем анимации только после полной загрузки страницы
+    window.addEventListener('load', () => {
+        // Небольшая задержка для уверенности, что все стили применились
+        setTimeout(() => {
+            handleScrollAnimations();
+        }, 100);
+    });
 
     // Обработчики событий
     window.addEventListener('scroll', () => {

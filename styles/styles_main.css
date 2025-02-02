@@ -46,23 +46,17 @@ body {
 
 /* Header styles */
 header {
-    background-color: var(--white) !important; /* Принудительно устанавливаем белый цвет */
+    background-color: var(--white) !important;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
+    height: 90px;
     top: 0;
     z-index: 1000;
-    padding: 1rem 2rem;
-    transition: none; /* Отключаем все возможные переходы для background-color */
-}
-
-header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
-    animation: slideInFromLeft 0.5s ease-out;
+    padding: 0 2rem;
+    display: flex; /* Используем flexbox для выравнивания */
+    align-items: center; /* Выравниваем элементы по вертикали */
+    justify-content: space-between; /* Заголовок слева, меню справа */
 }
 
 header h1 {
@@ -70,20 +64,22 @@ header h1 {
     font-size: 2.2rem;
     font-weight: 700;
     margin: 0;
-    transition: transform 0.3s ease;
-    position: relative; /* Добавляем для лучшего контроля позиционирования */
-    display: inline-block; /* Чтобы трансформация работала корректно */
 }
 
-header h1:hover {
-    transform: translateX(10px); /* Меняем на положительное значение для движения вправо */
+nav {
+    margin-left: auto; /* Отодвигаем навигацию вправо */
 }
 
 nav ul {
     display: flex;
     gap: 2.5rem;
     list-style: none;
-    margin-left: auto;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
 }
 
 nav ul li a {
@@ -102,10 +98,14 @@ nav ul li a:hover {
     transform: translateY(-2px);
 }
 
+header h1:hover {
+    transform: translateX(10px); /* Меняем на положительное значение для движения вправо */
+}
+
 /* Main content */
 main {
-    margin-top: 6rem;
-    padding: 2rem 0;
+    padding-top: 150px; /* Увеличиваем верхний отступ, чтобы учесть фиксированную шапку */
+    min-height: 150px; /* Минимальная высота на весь экран */
 }
 
 main h2 {
@@ -122,6 +122,8 @@ main h2 {
     flex-direction: column;
     gap: 2rem;
     width: 100%;
+    opacity: 1; /* Убираем начальную прозрачность */
+    transform: none; /* Убираем начальное смещение */
 }
 
 .feature {
