@@ -9,11 +9,11 @@
 </head>
 <body>
     <header>
-        <h1 href="mainpage.html">Zakupon</h1>
+        <h1><a href="mainpage.html">Zakupon</a></h1>
         <nav>
             <ul>
                 <li><a href="contact.html">Kontakt</a></li>
-                <li><a href="kosz.html">Koszyk zakupów</a></li>
+                <li><a href="kosz.html">Lista zakupów</a></li>
                 <li><a href="main_not_logged.html">Wyloguj się</a></li>
             </ul>
         </nav>
@@ -21,7 +21,9 @@
     <main>
         <div class="container">
             <div class="center">
-                <h2>Kupony</h2>
+                <div class="name">
+                    Dostępne kupony
+                </div>
                 <div class="list">
                     <div class="item" data-key="1">
                         <div class="img">
@@ -128,10 +130,17 @@
                 </div>
             </div>
             <div class="cart">
-                <div class="name">Koszyk</div>
+                <div class="name">
+                    Twoja lista   
+                </div>
+                <button id="clearCart" class="clear-btn">Utworz nową listę</button>
                 <div class="listCart">
                 </div>
+                
             </div>
+        </div>
+        <div id="notification" class="notification">
+            Nowa lista została utworzona!
         </div>
     </main>
 
