@@ -41,7 +41,6 @@ function createScrollTopButton() {
     document.head.appendChild(style);
 }
 
-
 // Показываем/скрываем кнопку прокрутки вверх
 function toggleScrollTopButton() {
     const button = document.querySelector('.scroll-top-button');

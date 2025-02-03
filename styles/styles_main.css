@@ -59,11 +59,17 @@ header {
     justify-content: space-between; /* Заголовок слева, меню справа */
 }
 
-header h1 {
+header h1 a{
     color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
     font-size: 2.2rem;
     font-weight: 700;
     margin: 0;
+}
+
+header h1 a:hover {
+    transform: translateX(10px);
 }
 
 nav {
@@ -96,10 +102,6 @@ nav ul li a:hover {
     background-color: var(--primary-color);
     color: var(--white);
     transform: translateY(-2px);
-}
-
-header h1:hover {
-    transform: translateX(10px); /* Меняем на положительное значение для движения вправо */
 }
 
 /* Main content */

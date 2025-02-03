@@ -13,6 +13,8 @@
 }
 
 body{
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
     background-color: var(--light-gray);
     display: flex;
     justify-content: center;
@@ -36,15 +38,17 @@ header {
     justify-content: space-between; 
 }
 
-header h1 {
+header h1 a{
     color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
     font-size: 2.2rem;
     font-weight: 700;
     margin: 0;
 }
 
-header h1:hover {
-    transform: translateX(10px); 
+header h1 a:hover {
+    transform: translateX(10px);
 }
 
 main {
