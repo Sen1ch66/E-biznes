@@ -74,3 +74,19 @@ main h1 {
 input{
     height: 50px;
 }
+.btn-danger{
+    position: relative;
+    padding-left: 30px;
+}
+.btn-danger::before{
+    content: '';
+    background-image: url(../galery/png-transparent-rubbish-bins-removebg-preview.png);
+    position: absolute;
+    left: 10px; 
+    top: 50%;
+    transform: translateY(-50%); 
+    width: 16px; 
+    height: 16px; 
+    background-size: contain; 
+    background-repeat: no-repeat;
+}

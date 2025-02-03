@@ -3,44 +3,70 @@ let loginAtt = 1
 const LogRegForm = document.querySelector("form")
 const signBtn = document.querySelector(".btn-secondary")
 const logBtn = document.querySelector(".btn-primary")
-function renderP(){
+const deteleBtn = document.querySelector(".btn-danger")
+
+function renderMessage(text, color) { 
     const message = document.createElement("p")
-    message.innerHTML = 'Konto zostalo zalozone'
-    message.style.color = 'green'
+    message.innerHTML = `<strong>${text}</strong>`
+    message.style.color = color
     LogRegForm.appendChild(message)
-    setTimeout(()=>{
+    setTimeout(() => {
         message.remove() 
-    }, 5000)
+    }, 4000)
 }
 
-signBtn.addEventListener("click", ()=>{ 
+signBtn.addEventListener("click", () => {
     const loginText = document.querySelector(".login").value
     const pass = document.querySelector(".password").value
-    listaKontow.push({login: loginText, password: pass})
-    if (!document.querySelector("p")){ 
-        renderP()
+
+    if (loginText.trim() === '' || pass.trim() === '') { 
+        renderMessage("Wpisz wszystkie dane", 'red')
+    } else {
+        listaKontow.push({ login: loginText.trim(), password: pass.trim() })
+        renderMessage('Konto zostalo zalozone', 'green')
     }
 })
 
-function logining(){
+deteleBtn.addEventListener("click", () => {
     const loginText = document.querySelector(".login").value
     const pass = document.querySelector(".password").value
-    for(let i in listaKontow){
-        if(listaKontow[i].login == loginText && listaKontow[i].password == pass){
-            window.location.href = 'mainpage.html'
-        } else if(loginAtt > 4){ 
-            alert("przekroczono liczbę prób, sprobuj pozniej")
-            logBtn.removeEventListener("click", logining) 
-        } else {
-            const error = document.createElement("p")
-            error.innerHTML = "Niepoprawny login lub haslo"
-            error.style = "color: red; font-weight: 900;"
-            LogRegForm.appendChild(error)
-            setTimeout(()=>{
-                error.remove()
-            },5000)
-            ++loginAtt
+    if (listaKontow.length === 0) {
+        renderMessage("Takiego konta nie istnieje", "red")
+        return
+    }
+    let foundAcc = false
+    for (let i in listaKontow) {
+        if (listaKontow[i].login == loginText && listaKontow[i].password == pass) {
+            listaKontow = listaKontow.filter(el => el.login !== loginText || el.password !== pass)
+            renderMessage("Konto zostalo usuniete", "green")
+            foundAcc = true
+            break
         }
+    }
+    if (!foundAcc) {
+        renderMessage("Takiego konta nie istnieje", "red")
+    }
+})
+
+function logining() {
+    const loginText = document.querySelector(".login").value
+    const pass = document.querySelector(".password").value
+    if (loginAtt > 4) { 
+        renderMessage("Przekroczono liczbę prób, sprobuj pozniej", "red")
+        logBtn.removeEventListener("click", logining) 
+        return
+    }
+    let successLogin = false
+    for (let i in listaKontow) {
+        if (listaKontow[i].login == loginText && listaKontow[i].password == pass) {
+            successLogin = true
+            window.location.href = 'mainpage.html'
+            break
+        } 
+    }
+    if (!successLogin) { 
+        renderMessage("Niepoprawny login lub haslo", "red")
+        ++loginAtt
     }
 }
 
