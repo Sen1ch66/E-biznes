@@ -42,6 +42,3 @@ function logining(){
     }
 }
 logBtn.addEventListener("click", logining) // після кліку на кнопку wejsc виконується функція вище
-
-
-

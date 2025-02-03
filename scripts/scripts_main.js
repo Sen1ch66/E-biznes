@@ -196,13 +196,3 @@ document.querySelectorAll('nav a').forEach(link => {
         }
     });
 });
-
-// Обработка переходов по навигационным ссылкам
-document.querySelectorAll('h1').forEach(link => {
-    link.addEventListener('click', (e) => {
-        if (link.getAttribute('href') !== '#') {
-            showLoadingIndicator();
-            setTimeout(hideLoadingIndicator, 500);
-        }
-    });
-});
