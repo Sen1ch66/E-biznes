@@ -3,6 +3,7 @@ let loginAtt = 1 // кількість спроб входу
 const LogRegForm = document.querySelector("form")
 const signBtn = document.querySelector(".btn-secondary")
 const logBtn = document.querySelector(".btn-primary")
+const deteleBtn = document.querySelector(".btn-danger")
 function renderP(){ // функція появи повідомлення про зареєстрований акаунт
     const message = document.createElement("p")
     message.innerHTML = 'Konto zostalo zalozone'
@@ -19,6 +20,24 @@ signBtn.addEventListener("click", ()=>{
     if (!document.querySelector("p")){ // якщо є повідомлення про зареєстрований ак щоб 2 не повлялось
         renderP()
     }
+    console.log(listaKontow)
+})
+deteleBtn.addEventListener("click", ()=>{
+    const loginText = document.querySelector(".login").value
+    const pass = document.querySelector(".password").value
+    for(let i in listaKontow){
+        if (listaKontow[i].login == loginText && listaKontow[i].password == pass){
+            listaKontow = listaKontow.filter(el => el.login !== loginText || el.password !== pass) 
+        } else if(!document.querySelector(".deleteAcc") || listaKontow.length === 0){
+            const deleteMes = document.createElement("p")
+            deleteMes.textContent = "takiego konta nie istnieje"
+            deleteMes.classList.add("deleteAcc")
+            LogRegForm.appendChild(deleteMes)
+            setTimeout(()=>{deleteMes.remove()},4000)
+        }
+    }
+
+    console.log(listaKontow)
 })
 function logining(){
     const loginText = document.querySelector(".login").value
