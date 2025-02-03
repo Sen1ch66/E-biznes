@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 :root{
     --white: #fff;
     --light: #eeeded;
@@ -30,16 +36,21 @@ header {
     justify-content: space-between; 
 }
 
-header h1 {
+header h1 a{
     color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
     font-size: 2.2rem;
     font-weight: 700;
     margin: 0;
 }
 
+header h1 a:hover {
+    transform: translateX(10px);
+}
+
 nav {
-    margin-left: auto; 
-    margin-right: 50px;
+    margin-left: auto;
 }
 
 nav ul {
@@ -70,10 +81,6 @@ nav ul li a:hover {
     transform: translateY(-2px);
 }
 
-header h1:hover {
-    transform: translateX(10px);
-}
-
 main {
     padding-top: 50px; 
     min-height: 50px; 
@@ -81,9 +88,8 @@ main {
 
 .container { 
     width: 1200px;
-    border: 1px solid var(--white);
     max-width: 100%;
-    margin: 50px auto 0;
+    margin: 20px auto 0;
     display: grid;
     grid-template-areas:
         "menu menu"
@@ -92,20 +98,20 @@ main {
     grid-template-rows: auto 1fr;      
     gap: 20px;                        
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 .container .center {
     grid-area: center;
     background-color: var(--light);
     
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 .container .cart {
     grid-area: cart;
     background-color: var(--white);
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 .add:hover {
@@ -118,8 +124,15 @@ main {
   transform: translateY(4px);
 }
 
-.center h2{
-    padding:25px;
+.center .name{
+    padding:20px;
+    padding-bottom: 70px;
+    background-color: var(--light);
+    border-radius: 30px 30px 0px 0px;
+    height:40px;
+    font-weight: bold;
+    font-size: xx-large;
+    border-bottom:1px solid var(--light);
 }
 
 .center .list{
@@ -171,15 +184,21 @@ main {
 }
 
 .item .content .add{
+    cursor: pointer;
     margin-top:5px;
-    background-color: var(--blue);
+    background-color: var(--primary-light);
     color:var(--white);
     padding:5px 10px;
     border:none;
     border-radius: 10px;
 }
 
+.item .content .add:hover{
+    background-color: var(--primary-color);
+}
+
 .item .content .remove{
+    cursor: pointer;
     padding:5px;
     border:none;
     margin-top:5px;
@@ -194,10 +213,13 @@ main {
 
 .cart .name{
     padding:20px;
+    padding-bottom: 70px;
+    background-color: var(--light-gray);
+    border-radius: 10px 10px 10px 10px;
     height:40px;
     font-weight: bold;
     font-size: xx-large;
-    border-bottom:1px solid var(--light)
+    border-bottom:1px solid var(--light);
 }
 
 .danger{
@@ -211,4 +233,32 @@ main {
 
 .cart .remove{
     display: inline-block!important;
+}
+
+.clear-btn {
+    display: block;
+    margin: 20px 20px 10px 20px;
+    padding: 8px 16px;
+    background-color: var(--primary-light);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.clear-btn:hover {
+    background-color: var(--primary-color);
+}
+
+.notification {
+    position: fixed;
+    top: 17px;
+    left: 200px;
+    padding: 15px 25px;
+    background-color: var(--primary-light);
+    color: white;
+    border-radius: 10px;
+    display: none;
+    z-index: 1000;
 }
