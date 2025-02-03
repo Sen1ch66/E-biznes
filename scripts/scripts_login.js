@@ -1,34 +1,36 @@
-let listaKontow = [] // список з акаунтами
-let loginAtt = 1 // кількість спроб входу
+let listaKontow = [] 
+let loginAtt = 1 
 const LogRegForm = document.querySelector("form")
 const signBtn = document.querySelector(".btn-secondary")
 const logBtn = document.querySelector(".btn-primary")
-function renderP(){ // функція появи повідомлення про зареєстрований акаунт
+function renderP(){
     const message = document.createElement("p")
     message.innerHTML = 'Konto zostalo zalozone'
     message.style.color = 'green'
     LogRegForm.appendChild(message)
     setTimeout(()=>{
-        message.remove() //видалення повідомлення через 5 секунд
+        message.remove() 
     }, 5000)
 }
+
 signBtn.addEventListener("click", ()=>{ 
     const loginText = document.querySelector(".login").value
     const pass = document.querySelector(".password").value
     listaKontow.push({login: loginText, password: pass})
-    if (!document.querySelector("p")){ // якщо є повідомлення про зареєстрований ак щоб 2 не повлялось
+    if (!document.querySelector("p")){ 
         renderP()
     }
 })
+
 function logining(){
     const loginText = document.querySelector(".login").value
     const pass = document.querySelector(".password").value
     for(let i in listaKontow){
         if(listaKontow[i].login == loginText && listaKontow[i].password == pass){
             window.location.href = 'mainpage.html'
-        } else if(loginAtt > 4){ //якщо 4 рази неправильно ввів дані
+        } else if(loginAtt > 4){ 
             alert("przekroczono liczbę prób, sprobuj pozniej")
-            logBtn.removeEventListener("click", logining) // видалення обробника кліку з кнопки
+            logBtn.removeEventListener("click", logining) 
         } else {
             const error = document.createElement("p")
             error.innerHTML = "Niepoprawny login lub haslo"
@@ -41,4 +43,5 @@ function logining(){
         }
     }
 }
-logBtn.addEventListener("click", logining) // після кліку на кнопку wejsc виконується функція вище
+
+logBtn.addEventListener("click", logining)

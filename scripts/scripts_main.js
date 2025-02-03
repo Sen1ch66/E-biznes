@@ -1,14 +1,11 @@
-// Создаем кнопку прокрутки вверх
 function createScrollTopButton() {
     const button = document.createElement('button');
     button.innerHTML = '↑';
     button.className = 'scroll-top-button';
     document.body.appendChild(button);
 
-    // Добавляем обработчик события для прокрутки вверх
     button.addEventListener('click', scrollToTop);
 
-    // Добавляем стили для кнопки
     const style = document.createElement('style');
     style.textContent = `
         .scroll-top-button {
@@ -41,7 +38,6 @@ function createScrollTopButton() {
     document.head.appendChild(style);
 }
 
-// Показываем/скрываем кнопку прокрутки вверх
 function toggleScrollTopButton() {
     const button = document.querySelector('.scroll-top-button');
     if (window.scrollY > 300) {
@@ -51,7 +47,6 @@ function toggleScrollTopButton() {
     }
 }
 
-// Плавная прокрутка вверх
 function scrollToTop() {
     window.scrollTo({
         top: 0,
@@ -59,13 +54,11 @@ function scrollToTop() {
     });
 }
 
-// Анимация появления элементов при прокрутке
 function handleScrollAnimations() {
     const elements = document.querySelectorAll('.feature');
     const windowHeight = window.innerHeight;
 
     elements.forEach(element => {
-        // Добавляем класс animate только если элемент еще не был анимирован
         if (!element.classList.contains('animate')) {
             element.classList.add('animate');
         }
@@ -77,7 +70,6 @@ function handleScrollAnimations() {
     });
 }
 
-// Добавляем стили для анимации появления элементов
 function addScrollAnimationStyles() {
     const style = document.createElement('style');
     style.textContent = `
@@ -90,7 +82,6 @@ function addScrollAnimationStyles() {
     document.head.appendChild(style);
 }
 
-// Анимация для навигационных ссылок
 function addNavigationAnimations() {
     const navLinks = document.querySelectorAll('nav ul li a');
     navLinks.forEach(link => {
@@ -105,7 +96,6 @@ function addNavigationAnimations() {
     });
 }
 
-// Добавляем индикатор загрузки страницы
 function addLoadingIndicator() {
     const loader = document.createElement('div');
     loader.className = 'page-loader';
@@ -133,19 +123,16 @@ function addLoadingIndicator() {
     document.head.appendChild(style);
 }
 
-// Показываем индикатор загрузки
 function showLoadingIndicator() {
     const loader = document.querySelector('.page-loader');
     loader.classList.add('loading');
 }
 
-// Скрываем индикатор загрузки
 function hideLoadingIndicator() {
     const loader = document.querySelector('.page-loader');
     loader.classList.remove('loading');
 }
 
-// Добавляем эффект параллакса для заголовка
 function addParallaxEffect() {
     const mainTitle = document.querySelector('main h2');
     
@@ -156,37 +143,30 @@ function addParallaxEffect() {
     });
 }
 
-// Инициализация всех функций
 document.addEventListener('DOMContentLoaded', () => {
-    // Удаляем начальные стили, которые могут вызывать проблемы
     const features = document.querySelectorAll('.feature');
     features.forEach(feature => {
         feature.style.opacity = '1';
         feature.style.transform = 'none';
     });
 
-    // Остальной код инициализации остается без изменений
     createScrollTopButton();
     addNavigationAnimations();
     addLoadingIndicator();
     addParallaxEffect();
 
-    // Запускаем анимации только после полной загрузки страницы
     window.addEventListener('load', () => {
-        // Небольшая задержка для уверенности, что все стили применились
         setTimeout(() => {
             handleScrollAnimations();
         }, 100);
     });
 
-    // Обработчики событий
     window.addEventListener('scroll', () => {
         toggleScrollTopButton();
         handleScrollAnimations();
     });
 });
 
-// Обработка переходов по навигационным ссылкам
 document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', (e) => {
         if (link.getAttribute('href') !== '#') {
