@@ -22,7 +22,6 @@ signBtn.addEventListener("click", () => {
         listaKontow.push({ login: loginText.trim(), password: pass.trim()})
         renderMessage('Konto zostalo zalozone', 'green')
     }
-    console.log(listaKontow)
 })
 deteleBtn.addEventListener("click", () => {
     const loginText = document.querySelector(".login").value
@@ -43,7 +42,6 @@ deteleBtn.addEventListener("click", () => {
     if (!foundAcc && !document.querySelector(".deleteAcc")) {
         renderMessage("Takiego konta nie istnieje", "red")
     }
-    console.log(listaKontow)
 })
 function logining() {
     const loginText = document.querySelector(".login").value
@@ -63,7 +61,6 @@ function logining() {
     if (!successLogin) { 
         renderMessage("Niepoprawny login lub haslo", "red")
         ++loginAtt
-        console.log(loginAtt)
     }
 }
 logBtn.addEventListener("click", logining) // після кліку на кнопку wejsc виконується функція вище
