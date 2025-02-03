@@ -88,9 +88,8 @@ main {
 
 .container { 
     width: 1200px;
-    border: 1px solid var(--white);
     max-width: 100%;
-    margin: 50px auto 0;
+    margin: 20px auto 0;
     display: grid;
     grid-template-areas:
         "menu menu"
@@ -99,20 +98,20 @@ main {
     grid-template-rows: auto 1fr;      
     gap: 20px;                        
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 .container .center {
     grid-area: center;
     background-color: var(--light);
     
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 .container .cart {
     grid-area: cart;
     background-color: var(--white);
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 .add:hover {
@@ -125,8 +124,15 @@ main {
   transform: translateY(4px);
 }
 
-.center h2{
-    padding:25px;
+.center .name{
+    padding:20px;
+    padding-bottom: 70px;
+    background-color: var(--light);
+    border-radius: 30px 30px 0px 0px;
+    height:40px;
+    font-weight: bold;
+    font-size: xx-large;
+    border-bottom:1px solid var(--light);
 }
 
 .center .list{
@@ -178,15 +184,21 @@ main {
 }
 
 .item .content .add{
+    cursor: pointer;
     margin-top:5px;
-    background-color: var(--blue);
+    background-color: var(--primary-light);
     color:var(--white);
     padding:5px 10px;
     border:none;
     border-radius: 10px;
 }
 
+.item .content .add:hover{
+    background-color: var(--primary-color);
+}
+
 .item .content .remove{
+    cursor: pointer;
     padding:5px;
     border:none;
     margin-top:5px;
@@ -203,7 +215,7 @@ main {
     padding:20px;
     padding-bottom: 70px;
     background-color: var(--light-gray);
-    border-radius: 30px 30px 0px 0px;
+    border-radius: 30px 30px 10px 10px;
     height:40px;
     font-weight: bold;
     font-size: xx-large;
@@ -221,4 +233,32 @@ main {
 
 .cart .remove{
     display: inline-block!important;
+}
+
+.clear-btn {
+    display: block;
+    margin: 20px 20px 10px 20px;
+    padding: 8px 16px;
+    background-color: var(--primary-light);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.clear-btn:hover {
+    background-color: var(--primary-color);
+}
+
+.notification {
+    position: fixed;
+    top: 17px;
+    left: 200px;
+    padding: 15px 25px;
+    background-color: var(--primary-light);
+    color: white;
+    border-radius: 10px;
+    display: none;
+    z-index: 1000;
 }

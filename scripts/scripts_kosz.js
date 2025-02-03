@@ -32,3 +32,20 @@ function Remove($key){
         }
     })
 }
+
+document.getElementById('clearCart').addEventListener('click', function() {
+    if (confirm('Czy na pewno chcesz utworzyć nową listę? Wszystkie obecne elementy zostaną usunięte.')) {
+        const cartContainer = document.querySelector('.listCart');
+        
+        while (cartContainer.firstChild) {
+            cartContainer.removeChild(cartContainer.firstChild);
+        }
+
+        const notification = document.getElementById('notification');
+        notification.style.display = 'block';
+
+        setTimeout(function() {
+            notification.style.display = 'none';
+        }, 2000);
+    }
+});
