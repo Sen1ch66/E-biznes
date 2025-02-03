@@ -13,6 +13,13 @@ function renderP(){ // функція появи повідомлення про
         message.remove() //видалення повідомлення через 5 секунд
     }, 5000)
 }
+function deleteAccMessage(){
+    const deleteMes = document.createElement("p")
+    deleteMes.textContent = "takiego konta nie istnieje"
+    deleteMes.classList.add("deleteAcc")
+    LogRegForm.appendChild(deleteMes)
+    setTimeout(()=>{deleteMes.remove()},4000)
+}
 signBtn.addEventListener("click", ()=>{ 
     const loginText = document.querySelector(".login").value
     const pass = document.querySelector(".password").value
@@ -25,18 +32,25 @@ signBtn.addEventListener("click", ()=>{
 deteleBtn.addEventListener("click", ()=>{
     const loginText = document.querySelector(".login").value
     const pass = document.querySelector(".password").value
+    if (listaKontow.length === 0){
+        deleteAccMessage()
+    }
+    let foundAcc = false
     for(let i in listaKontow){
         if (listaKontow[i].login == loginText && listaKontow[i].password == pass){
-            listaKontow = listaKontow.filter(el => el.login !== loginText || el.password !== pass) 
-        } else if(!document.querySelector(".deleteAcc") || listaKontow.length === 0){
-            const deleteMes = document.createElement("p")
-            deleteMes.textContent = "takiego konta nie istnieje"
-            deleteMes.classList.add("deleteAcc")
-            LogRegForm.appendChild(deleteMes)
-            setTimeout(()=>{deleteMes.remove()},4000)
+            listaKontow = listaKontow.filter(el => el.login !== loginText || el.password !== pass)
+            const sucsess = document.createElement("p")
+            sucsess.innerHTML = '<strong>Konto zostało usuniete</strong>'
+            sucsess.style.color = 'green'
+            LogRegForm.appendChild(sucsess)
+            setTimeout(()=>{sucsess.remove()},4000)
+            foundAcc = true
+            break
         }
     }
-
+    if (!foundAcc && !document.querySelector(".deleteAcc")){
+        deleteAccMessage()
+    }
     console.log(listaKontow)
 })
 function logining(){
